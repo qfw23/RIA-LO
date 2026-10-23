@@ -1,0 +1,51 @@
+# RIA-LO KITTI outdoor driving profile.
+scan_line: 64
+scan_period: 0.1
+min_dis: 3.0
+max_dis: 90.0
+topic: /velodyne_points
+
+edge_curvature_threshold: 0.10
+edge_features_per_sector: 20
+edge_suppression_distance_sq: 0.05
+
+map_resolution: 0.40
+surface_resolution_scale: 2.20
+optimization_iterations: 2
+ceres_max_iterations: 2
+
+robust_delta_scale_multiplier: 1.5
+robust_delta_min: 0.055
+robust_delta_max: 0.15
+
+direction_balance_exponent: 0.50
+direction_weight_min: 0.65
+direction_weight_max: 1.55
+
+weighting_adaptive: false
+weighting_enter_constraints: 2500
+weighting_exit_constraints: 3500
+weighting_enter_direction_bins: 8
+weighting_exit_direction_bins: 10
+
+# Phase-aware compensation about the scan midpoint.
+scan_phase_encoding: true
+scan_motion_compensation: true
+motion_reference_phase: 0.50
+motion_compensation_scale: 0.25
+motion_translation_scale: 0.25
+motion_rotation_scale: 0.00
+motion_compensation_warmup_frames: 10
+
+# Motion-dependent anisotropic compensation: emphasize translation on straight
+# motion, then reduce translation and introduce bounded angular correction as
+# sustained turn activity increases.
+adaptive_motion_scaling: true
+high_turn_translation_scale: 0.10
+high_turn_rotation_scale: 0.20
+motion_turn_start: 0.004
+motion_turn_end: 0.008
+motion_turn_smoothing: 0.20
+motion_turn_duty_start: 0.60
+motion_turn_duty_end: 0.75
+motion_turn_duty_smoothing: 0.02

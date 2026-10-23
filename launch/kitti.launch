@@ -1,0 +1,16 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+  <rosparam command="load" file="$(find ria_lo)/config/kitti.yaml"/>
+
+  <node pkg="ria_lo"
+        type="ria_lo_laser_processing_node"
+        name="ria_lo_feature_extraction"
+        output="screen"
+        required="true"/>
+
+  <node pkg="ria_lo"
+        type="ria_lo_odometry_node"
+        name="ria_lo_odometry"
+        output="screen"
+        required="true"/>
+</launch>

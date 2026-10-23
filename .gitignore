@@ -1,0 +1,15 @@
+build/
+devel/
+install/
+logs/
+.catkin_tools/
+.vscode/
+*.bag
+*.bag.active
+*.pcd
+*.csv
+*.log
+__pycache__/
+config/*.yaml
+config/*.yml
+!config/kitti.yaml
